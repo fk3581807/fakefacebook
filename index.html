@@ -39,7 +39,7 @@
         }
         .container {
             max-width: 600px;
-            margin: 70px auto 50px;
+            margin: 70px auto 120px;
             background: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 15px;
@@ -54,6 +54,10 @@
             font-weight: 300;
         }
         .cta-button {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             display: inline-block;
             padding: 15px 25px;
             font-size: 22px;
@@ -65,22 +69,16 @@
             cursor: pointer;
             text-decoration: none;
             transition: 0.3s;
+            z-index: 999;
         }
         .cta-button:hover {
             background: #d81b60;
-            transform: scale(1.05);
+            transform: translateX(-50%) scale(1.05);
         }
         .small-text {
             font-size: 14px;
             margin-top: 10px;
             font-weight: 300;
-        }
-        .payment-proof {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .fake-payments {
             background: rgba(255, 255, 255, 0.2);
@@ -122,8 +120,7 @@
     <div class="container">
         <h1>💰 Work 2 Hours Daily & Earn Instantly! 🚀</h1>
         <p>✅ No Investment Needed <br> ✅ Works Instantly <br> ✅ Thousands Already Earning!</p>
-        <img src="https://via.placeholder.com/500x300" alt="Payment Proof" class="payment-proof">
-        <a href="YOUR_MONETAG_DIRECT_LINK" class="cta-button">Start Earning Now</a>
+
         <p class="small-text">Limited slots available. Don’t miss out!</p>
 
         <div class="fake-payments">
@@ -134,7 +131,7 @@
         <div class="faq">
             <h2>Frequently Asked Questions</h2>
             <p><strong>Q: Do I need to invest money?</strong><br>A: No, this opportunity is completely free to start.</p>
-            <p><strong>Q: How long does it take to earn?</strong><br>A: Many users start seeing results within minutes!</p>
+            <p><strong>Q: How long does it take to earn?</strong><br>A: Many users start seeing results within a few hours!</p>
             <p><strong>Q: Is this available worldwide?</strong><br>A: Yes, anyone can join and start earning.</p>
         </div>
 
@@ -149,6 +146,8 @@
         </div>
     </div>
 
+    <a href="YOUR_MONETAG_DIRECT_LINK" class="cta-button">Start Earning Now</a>
+
     <script>
         const users = [
             { name: 'Rohit Sharma', country: 'in' },
@@ -160,8 +159,26 @@
             { name: 'Fatima K.', country: 'pk' },
             { name: 'Nikhil R.', country: 'in' },
             { name: 'Sara J.', country: 'gb' },
-            { name: 'Arjun M.', country: 'in' }
+            { name: 'Arjun M.', country: 'in' },
+            { name: 'Emily W.', country: 'us' },
+            { name: 'Liam B.', country: 'ca' },
+            { name: 'Noah M.', country: 'au' },
+            { name: 'Sophia Z.', country: 'de' },
+            { name: 'Isla H.', country: 'gb' },
+            { name: 'Lucas F.', country: 'br' },
+            { name: 'Olivia K.', country: 'us' },
+            { name: 'Zara Y.', country: 'sa' },
+            { name: 'Ethan C.', country: 'nz' },
+            { name: 'Mia L.', country: 'sg' },
+            { name: 'Carlos R.', country: 'es' },
+            { name: 'Aisha B.', country: 'ng' },
+            { name: 'Takeshi H.', country: 'jp' },
+            { name: 'Chen W.', country: 'cn' },
+            { name: 'Ahmed M.', country: 'eg' },
+            { name: 'Maria N.', country: 'ru' },
+            { name: 'Jin S.', country: 'kr' }
         ];
+
         const usedUsers = new Set();
 
         function getUniqueUser() {
