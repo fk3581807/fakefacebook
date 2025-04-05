@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn Instantly - No Investment Needed!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .marquee {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            color: yellow;
+            padding: 5px 0;
+            font-size: 14px;
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0%); }
+            to { transform: translateX(-100%); }
+        }
+        .container {
+            max-width: 600px;
+            margin: 70px auto 50px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 18px;
+            font-weight: 300;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+            background: #ff4081;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .cta-button:hover {
+            background: #d81b60;
+            transform: scale(1.05);
+        }
+        .small-text {
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        .payment-proof {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .fake-payments {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 15px;
+        }
+        .faq, .contact, .payment-methods {
+            text-align: left;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .faq h2, .contact h2, .payment-methods h2, .fake-payments h2 {
+            text-align: center;
+            font-size: 22px;
+        }
+        .faq p, .contact p, .payment-methods p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .flag {
+            width: 20px;
+            height: 15px;
+            vertical-align: middle;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee">
+        <span>⚠️ Only one account is allowed per person. If anyone has more than one account, it will be blocked and no money will be paid. ⚠️</span>
+    </div>
+
+    <div class="container">
+        <h1>💰 Work 2 Hours Daily & Earn Instantly! 🚀</h1>
+        <p>✅ No Investment Needed <br> ✅ Works Instantly <br> ✅ Thousands Already Earning!</p>
+        <img src="https://via.placeholder.com/500x300" alt="Payment Proof" class="payment-proof">
+        <a href="YOUR_MONETAG_DIRECT_LINK" class="cta-button">Start Earning Now</a>
+        <p class="small-text">Limited slots available. Don’t miss out!</p>
+
+        <div class="fake-payments">
+            <h2>Recent Payments</h2>
+            <div id="payments"></div>
+        </div>
+
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <p><strong>Q: Do I need to invest money?</strong><br>A: No, this opportunity is completely free to start.</p>
+            <p><strong>Q: How long does it take to earn?</strong><br>A: Many users start seeing results within minutes!</p>
+            <p><strong>Q: Is this available worldwide?</strong><br>A: Yes, anyone can join and start earning.</p>
+        </div>
+
+        <div class="payment-methods">
+            <h2>Payment Methods</h2>
+            <p>💳 <strong>Daily Payments via PayPal & Skrill!</strong></p>
+        </div>
+
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>📩 Email: <a href="mailto:support@example.com" style="color: white; text-decoration: underline;">support@example.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        const users = [
+            { name: 'Rohit Sharma', country: 'in' },
+            { name: 'Priya S.', country: 'in' },
+            { name: 'John D.', country: 'us' },
+            { name: 'Amit Verma', country: 'in' },
+            { name: 'Sneha T.', country: 'in' },
+            { name: 'Harsh P.', country: 'in' },
+            { name: 'Fatima K.', country: 'pk' },
+            { name: 'Nikhil R.', country: 'in' },
+            { name: 'Sara J.', country: 'gb' },
+            { name: 'Arjun M.', country: 'in' }
+        ];
+        const usedUsers = new Set();
+
+        function getUniqueUser() {
+            let user;
+            do {
+                user = users[Math.floor(Math.random() * users.length)];
+            } while (usedUsers.has(user.name));
+            usedUsers.add(user.name);
+            return user;
+        }
+
+        function getRandomID(method) {
+            return method === 'PayPal' ? '****' + Math.floor(1000 + Math.random() * 9000) + '@paypal' : 'skrill****' + Math.floor(1000 + Math.random() * 9000);
+        }
+
+        function getRandomAmount() {
+            return (Math.random() * (20 - 5) + 5).toFixed(2);
+        }
+
+        function getCurrentDateTime() {
+            const now = new Date();
+            return now.toLocaleString();
+        }
+
+        function getRandomMethod() {
+            return Math.random() < 0.5 ? 'PayPal' : 'Skrill';
+        }
+
+        function generateFakePayments() {
+            const container = document.getElementById('payments');
+            for (let i = 0; i < 6; i++) {
+                const userObj = getUniqueUser();
+                const method = getRandomMethod();
+                const id = getRandomID(method);
+                const amount = getRandomAmount();
+                const time = getCurrentDateTime();
+                const div = document.createElement('p');
+                const flag = `<img src="https://flagcdn.com/16x12/${userObj.country}.png" class="flag">`;
+                div.innerHTML = `💸 ${flag}<strong>${userObj.name}</strong> received <strong>$${amount}</strong> via <strong>${method}</strong> (<em>${id}</em>) on <em>${time}</em>`;
+                container.appendChild(div);
+            }
+        }
+
+        generateFakePayments();
+    </script>
+</body>
+</html>
